@@ -8,11 +8,11 @@ Operation:
     If the reference is deficient or the article is very new and not yet in the database,
     a wrong article may be identified.
 3) The script then opens the article's web page in the default browser.
-Author: Joona Rissanen, last modified 25.8.2018
+
+Author: Joona Rissanen
 """
 
 import win32clipboard
-import win32api
 import webbrowser
 import urllib
 import requests
@@ -27,7 +27,6 @@ def find_best_matching_doi_url(query_string):
     assert query_string
     total_url = API_URL + urllib.parse.quote_plus(query_string)
     headers = make_headers()
-    win32api.MessageBox(0, headers['User-Agent'], 'header')
     response_text = requests.get(total_url, headers=headers).text
     match_dict = json.loads(response_text)
     assert match_dict['status'] == 'ok'
@@ -43,19 +42,23 @@ def read_windows_clipboard_contents():
 
 
 def get_user_email_from_config():
-    with open(CONFIG_FILE, 'r') as config_file:
-        text = config_file.read()
-        config_dict = json.loads(text)
-        email = config_dict.get('email', AUTHOR_EMAIL)
-        if email in ['AUTHOR_EMAIL', '']:
-            win32api.MessageBox(0, 'Please update your own email address to the config.json file. You can edit the file'
-                                ' in Notepad.', 'Notice')
-        return email
+    try:
+        with open(CONFIG_FILE, 'r') as config_file:
+            text = config_file.read()
+            config_dict = json.loads(text)
+            email = config_dict.get('email', AUTHOR_EMAIL)
+            return email
+    except FileNotFoundError:
+        print('Configuration file config.json not found. Defaulting to author email, but please restore config.json '
+              'with your email address.')
+        return AUTHOR_EMAIL
 
 
 def make_headers():
     return {
-        'User-Agent': 'Article Finder script, mailto:{email}'.format(email=get_user_email_from_config())
+        'User-Agent':
+            'Article Finder script, (https://github.com/Jomiri/article-finder, mailto:{email})'
+            .format(email=get_user_email_from_config())
     }
 
 
@@ -64,12 +67,12 @@ def open_in_new_browser_tab(url):
 
 
 def main():
-    query_string = read_windows_clipboard_contents()
-    article_doi_url = find_best_matching_doi_url(query_string)
-    open_in_new_browser_tab(article_doi_url)
-    #try:
-    #except Exception:
-        #return
+    try:
+        query_string = read_windows_clipboard_contents()
+        article_doi_url = find_best_matching_doi_url(query_string)
+        open_in_new_browser_tab(article_doi_url)
+    except Exception:
+        return
 
 
 if __name__ == '__main__':
