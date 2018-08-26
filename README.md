@@ -5,7 +5,7 @@ Article Finder takes a textual reference, determines the research article that b
 in a new browser tab. By using Article Finder, you can avoid copy-pasting references to Google or academic search engines
  and save a few seconds every time you are trying to locate an article online. 
  The reference can be almost anything, including the article's title, DOI number, abstract,
- list of authors and/or the journals name, issue and page numbers.
+ list of authors and/or the journal's name, issue and page numbers.
  Article Finder is especially useful when dealing with older PDF articles whose bibliographies do not contain hyperlinks. 
  Internally, the script calls the [CrossRef API](https://www.crossref.org/services/metadata-delivery/rest-api/), which
   does the heavy lifting.
@@ -28,9 +28,10 @@ Python script directly especially if you want to modify the source code yourself
 
 ### Method 1: Pre-packaged installer
 
-There is a ready-made Windows installer available. As a standard user, you can
+There is a ready-made 
+[Windows installer](https://github.com/Jomiri/article-finder/releases/download/v1.0/ArticleFinderInstaller.exe) available on the releases page. As a standard user, you can
 install Article Finder without Admin privileges if you choose your own user directory as the install location (as opposed to C:\Program
- Files, for instance). The installer automatically binds the keyboard shortcut **Ctrl + Alt + c** to Article Finder's Start menu item to make launching the tool
+ Files, for instance). The installer automatically binds the keyboard shortcut **Ctrl+Alt+c** to Article Finder's Start menu item to make launching the tool
  as convenient as possible. If you wish to use a different hotkey combination, you can bind it to the desktop shortcut.
  
 ### Method 2: Python script
