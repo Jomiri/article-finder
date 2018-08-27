@@ -31,8 +31,9 @@ Python script directly especially if you want to modify the source code yourself
 There is a ready-made 
 [Windows installer](https://github.com/Jomiri/article-finder/releases/download/v1.0/ArticleFinderInstaller.exe) available on the releases page. As a standard user, you can
 install Article Finder without Admin privileges if you choose your own user directory as the install location (as opposed to C:\Program
- Files, for instance). The installer automatically binds the keyboard shortcut **Ctrl+Alt+c** to Article Finder's Start menu item to make launching the tool
+ Files, for instance). The installer automatically binds the keyboard shortcut **Ctrl+Alt+c** to Article Finder's Start menu item and Desktop shortcut to make launching the tool
  as convenient as possible. If you wish to use a different hotkey combination, you can bind it to the desktop shortcut.
+ You may need to log out and log in again or click the desktop shortcut for the hotkey combination to start working.
  
 ### Method 2: Python script
 
