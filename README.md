@@ -10,16 +10,14 @@ in a new browser tab. By using Article Finder, you can avoid copy-pasting refere
  Internally, the script calls the [CrossRef API](https://www.crossref.org/services/metadata-delivery/rest-api/), which
   does the heavy lifting.
   
+## Usage in two simple steps
+
+1) Copy a reference, such as a bibliography entry, to clipboard with **Ctrl+c**.
+2) Hit **Ctrl+Alt+c** (the default shortcut) to run Article Finder, which opens the article's web page in your default browser.
   
 ## System requirements
 
 The program supports only Microsoft Windows at the moment. Please open a new issue if you are interested in using the tool on Linux or MacOS.
-
-## Usage in three simple steps
-
-1) Copy a piece of text containing the reference to clipboard with **Ctrl+c**.
-2) Launch Article Finder by pressing **Ctrl+Alt+c** (the default shortcut).
-3) Check that the found article looks correct.
 
 ## Installation
 
@@ -29,10 +27,10 @@ Python script directly especially if you want to modify the source code yourself
 ### Method 1: Pre-packaged installer
 
 There is a ready-made 
-[Windows installer](https://github.com/Jomiri/article-finder/releases/download/v1.0/ArticleFinderInstaller.exe) available on the releases page. As a standard user, you can
+[Windows installer](https://github.com/Jomiri/article-finder/releases/download/v1.0/ArticleFinderInstaller.exe) available on the Releases page. You can
 install Article Finder without Admin privileges if you choose your own user directory as the install location (as opposed to C:\Program
  Files, for instance). The installer automatically binds the keyboard shortcut **Ctrl+Alt+c** to Article Finder's Start menu item and Desktop shortcut to make launching the tool
- as convenient as possible. If you wish to use a different hotkey combination, you can bind it to the desktop shortcut.
+ as convenient as possible. If you wish to use a different hotkey combination, you can modify the shortcuts' properties.
  You may need to log out and log in again or click the desktop shortcut for the hotkey combination to start working.
  
 ### Method 2: Python script
